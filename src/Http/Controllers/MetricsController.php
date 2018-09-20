@@ -22,13 +22,14 @@ class MetricsController extends Controller
 
         $totalDiskSpace = disk_total_space('/');
         $freeDiskSpace = disk_free_space('/');
-        $usePercentage = round(($freeDiskSpace / $totalDiskSpace) * 100);
+        $usedDiskSpace = $totalDiskSpace - $freeDiskSpace;
+        $usePercentage = round(($usedDiskSpace / $totalDiskSpace) * 100);
 
         $size = min((int) log($totalDiskSpace, $base), count($sizePrefixes) - 1);
 
         return [
             'total_space' => round($totalDiskSpace / pow($base, $size)),
-            'free_space' => round($freeDiskSpace / pow($base, $size)),
+            'used_space' => round($usedDiskSpace / pow($base, $size)),
             'use_percentage' => $usePercentage,
             'unit' => $sizePrefixes[$size],
         ];
@@ -53,13 +54,14 @@ class MetricsController extends Controller
             }
         }
 
-        $usePercentage = round(($freeMemory / $totalMemory) * 100);
+        $usedMemory = $totalMemory - $freeMemory;
+        $usePercentage = round(($usedMemory / $totalMemory) * 100);
 
         $size = min((int) log($totalMemory, $base), count($sizePrefixes) - 1);
 
         return [
             'total_memory' => round($totalMemory / pow($base, $size)),
-            'free_memory' => round($freeMemory / pow($base, $size)),
+            'used_memory' => round($usedMemory / pow($base, $size)),
             'use_percentage' => $usePercentage,
             'unit' => $sizePrefixes[$size],
         ];
