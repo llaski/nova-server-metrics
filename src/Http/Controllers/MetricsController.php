@@ -37,11 +37,7 @@ class MetricsController extends Controller
     private function getMemoryUsage()
     {
         if (!file_exists('/proc/meminfo')) {
-            return [
-                'freeMemory' => null,
-                'usedMemory' => null,
-                'memoryUnit' => 'MB',
-            ];
+            return null;
         }
 
         $sizePrefixes = ['KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB'];

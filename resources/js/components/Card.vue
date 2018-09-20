@@ -12,7 +12,7 @@
                             <span>{{ metrics.disk_usage.use_percentage}}% Used ({{ metrics.disk_usage.free_space }}<span class="text-xs">{{  metrics.disk_usage.unit.toLowerCase() }}</span> / {{ metrics.disk_usage.total_space }}<span class="text-xs">{{  metrics.disk_usage.unit.toLowerCase() }}</span>)</span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr v-if="metrics.memory_usage">
                         <td><span class="font-semibold">Memory Usage</span></td>
                         <td>
                             <span>{{ metrics.memory_usage.use_percentage}}% Used ({{ metrics.memory_usage.free_memory }}<span class="text-xs">{{  metrics.memory_usage.unit.toLowerCase() }}</span> / {{ metrics.memory_usage.total_memory }}<span class="text-xs">{{  metrics.memory_usage.unit.toLowerCase() }}</span>)</span>
