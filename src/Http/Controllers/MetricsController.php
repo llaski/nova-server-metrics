@@ -36,7 +36,7 @@ class MetricsController extends Controller
 
     private function getMemoryUsage()
     {
-        if (!file_exists(__DIR__ . '/meminfo')) {
+        if (!file_exists('/proc/meminfo')) {
             return [
                 'freeMemory' => null,
                 'usedMemory' => null,
@@ -47,7 +47,7 @@ class MetricsController extends Controller
         $sizePrefixes = ['KB', 'MB', 'GB', 'TB', 'EB', 'ZB', 'YB'];
         $base = 1024;
 
-        foreach (file(__DIR__ . '/meminfo') as $result) {
+        foreach (file('/proc/meminfo') as $result) {
             $array = explode(':', str_replace(' ', '', $result));
             $value = preg_replace('/kb/i', '', $array[1]);
             if (preg_match('/^MemTotal/', $result)) {
