@@ -1,11 +1,17 @@
 # Nova Server Metrics
 
-## Includes a card to display your server metrics
-
-- Please note this package currently only supports Linux
-
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/llaski/nova-server-metrics.svg?style=flat-square)](https://packagist.org/packages/llaski/nova-server-metrics)
 [![Total Downloads](https://img.shields.io/packagist/dt/llaski/nova-server-metrics.svg?style=flat-square)](https://packagist.org/packages/llaski/nova-server-metrics)
+
+## Includes a card to display your server metrics
+
+### Available Metrics
+
+- Disk Space
+- Memory Usage
+- CPU Usage
+
+* Please note this package currently only supports Linux
 
 ![Nova Scheduled Jobs Card Screenshot](https://raw.githubusercontent.com/llaski/screenshots/master/nova-server-metrics-card.png)
 
