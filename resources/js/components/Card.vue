@@ -9,7 +9,7 @@
                     <tr>
                         <td><span class="font-semibold">Disk Space</span></td>
                         <td>
-                            <span>{{ metrics.disk_usage.use_percentage}}% Used ({{ metrics.disk_usage.used_space }}<span class="text-xs">{{  metrics.disk_usage.unit.toLowerCase() }}</span> / {{ metrics.disk_usage.total_space }}<span class="text-xs">{{  metrics.disk_usage.unit.toLowerCase() }}</span>)</span>
+                            <span>{{ metrics.disk_space.use_percentage}}% Used ({{ metrics.disk_space.used_space }}<span class="text-xs">{{  metrics.disk_space.unit.toLowerCase() }}</span> / {{ metrics.disk_space.total_space }}<span class="text-xs">{{  metrics.disk_space.unit.toLowerCase() }}</span>)</span>
                         </td>
                     </tr>
                     <tr v-if="metrics.memory_usage">
